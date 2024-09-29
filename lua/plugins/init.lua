@@ -18,36 +18,16 @@ local default_plugins = {
     lazy = false,
   },
 
-  --{
-  --  "zbirenbaum/nvterm",
-  --  init = function()
-  --    require("core.utils").load_mappings "nvterm"
-   -- end,
-   -- config = function(_, opts)
-   --   require "base46.term"
-   --   require("nvterm").setup(opts)
-   -- end,
-   -- lazy = false, 
-  --},
-  {'akinsho/toggleterm.nvim', version = "*", config = true},
   {
-    "NvChad/nvim-colorizer.lua",
-    event = "User FilePost",
+    "zbirenbaum/nvterm",
+    init = function()
+      require("core.utils").load_mappings "nvterm"
+    end,
     config = function(_, opts)
-      require("colorizer").setup(opts)
-
-      -- execute colorizer as soon as possible
-      vim.defer_fn(function()
-        require("colorizer").attach_to_buffer(0)
-      end, 0)
+      require "base46.term"
+      require("nvterm").setup(opts)
     end,
-  },
-  {
-    'Civitasv/cmake-tools.nvim',
-    config= function ()
-      require 'plugins.configs.cmake-tools'
-    end,
-    lazy=false,
+    lazy = false, 
   },
   {
     "nvim-tree/nvim-web-devicons",
